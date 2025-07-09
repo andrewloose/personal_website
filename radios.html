@@ -31,11 +31,6 @@
             </ul>
         </div>
     </nav>
-    <h2> Radios I like/Am Involved With</h2>
-    <p> This is the WRBB radio stream, which I pulled from radiomast.io's embed feature, such that it links directly to the live component of 
-        WRBB. Clicking this button will allow you to listen to the station at any time.
-    </p>
-
     <!-- Stream Embedded Section -->
     <div class="stream-container">
         <iframe 
@@ -47,6 +42,12 @@
 
         ></iframe>
     </div>
+
+    <h2> Previous West of the Wire Shows on WRBB: </h2>
+    <p></p>
+    <audio controls>
+        <source src="https://wrbb-vortex.s3.us-east-1.amazonaws.com/WRBB-2025-03-13-17.mp3" type="audio/mpeg">
+      </audio>
 
 
 
@@ -74,5 +75,44 @@
             </div>
         </div>
     </footer>
+
+    <!-- Persistent Audio Player -->
+    <!-- Persistent Audio Player -->
+    <div id="persistent-player">
+        <div class="player-container">
+            <button id="play-btn">
+                <i class="material-icons play-icon">play_arrow</i>
+                <i class="material-icons pause-icon" style="display:none;">pause</i>
+            </button>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="time-display">
+                    <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+                </div>
+                <div class="status-indicator" id="status-indicator">Ready</div>
+            </div>
+            
+            <div class="track-info">
+                <span id="current-track">No track selected</span>
+            </div>
+            
+            <div class="select-wrapper">
+                <select id="track-select">
+                    <option value="">Select a show</option>
+                    <option value="https://wrbb-vortex.s3.us-east-1.amazonaws.com/WRBB-2025-04-24-17.mp3" data-start-time="117">Season 7, Episode 11</option>
+                    <option value="https://wrbb-vortex.s3.us-east-1.amazonaws.com/WRBB-2025-04-10-17.mp3" data-start-time="130">Season 7, Episode 10</option>
+                    <option value="https://wrbb-vortex.s3.us-east-1.amazonaws.com/WRBB-2025-04-03-17.mp3" data-start-time="172">Season 7, Episode 9</option>
+                    <option value="https://wrbb-vortex.s3.us-east-1.amazonaws.com/WRBB-2025-03-27-17.mp3" data-start-time="120">Season 7, Episode 8</option>
+                    <option value="https://wrbb-vortex.s3.us-east-1.amazonaws.com/WRBB-2025-03-20-17.mp3" data-start-time="125">Season 7, Episode 7</option>
+                    <option value="https://wrbb-vortex.s3.us-east-1.amazonaws.com/WRBB-2025-03-13-17.mp3" data-start-time="175">Season 7, Episode 6</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="persistent-player.js"></script>
 </body>
 </html>
