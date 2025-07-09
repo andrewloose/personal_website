@@ -2,32 +2,37 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Times New Roman", Times, serif;;
+    font-family: "Times New Roman", Times, serif;
 }
 
+body {
+    background-color: #fff;
+    padding-bottom: 80px; /* Space for player */
+}
+
+/* Navbar Styles */
 .navbar {
     background: #F0F8FF;
     height: 80px;
     display: flex;
     justify-content: center;
-    align-items: left;
-    fontsize: 1.2rem;
+    align-items: center;
     position: sticky;
     top: 0;
     z-index: 999;
-
 }
 
 .navbar__container {
-    display:flex;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 80px;
-    z-index: 1;
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 50px;
 }
+
 @font-face {
     font-family: 'Chomsky';
     src: url('/fonts/chomsky/Chomsky.woff') format('woff2'),
@@ -51,261 +56,98 @@
     font-size: 2rem;
     font-weight: bold;
     position: relative;
-    white-space: nowrap; /* Prevents wrapping */
-    opacity: 1; /* Make sure it's visible by default */
-    transition: opacity 0.3s ease; /* Adds fade effect */
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 /* Default full text */
 #navbar__logo::after {
-    content: "West of the Wire"; /* Full logo text */
-}
-/* Navbar Logo Hover - Fade-in Effect */
-#navbar__logo:hover {
-    opacity: 0.5; /* Make the logo semi-transparent on hover */
+    content: "West of the Wire";
 }
 
-/* Optional: To return the logo to full opacity smoothly when not hovering */
-#navbar__logo {
-    transition: opacity 0.3s ease; /* Ensure smooth fade in/out */
+/* Navbar Logo Hover - Fade-in Effect */
+#navbar__logo:hover {
+    opacity: 0.5;
 }
 
 /* Smaller screen - change text */
 @media screen and (max-width: 600px) {
     #navbar__logo::after {
-        content: "WOTW"; /* Shorter text */
+        content: "WOTW";
     }
-}
-
-.fa-gem {
-    margin-right: 0.5rem;
 }
 
 .navbar__menu {
     display: flex;
     align-items: center;
     list-style: none;
-    text-align: center;
-}
-
-.navbar__item {
-    height: 80px;
+    gap: 2rem;
 }
 
 .navbar__links {
     color: #191970;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-}
-
-.navbar_btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-    width: 100%;
-
-}
-
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 10px 20px;
-    height: 100%;
-    width: 100%;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    background: #D2691E;
-    color: #fff
-
-
-}
-
-.button:hover {
-    background: #6495ED;
+    padding: 0.5rem 1rem;
     transition: all 0.3s ease;
 }
 
 .navbar__links:hover {
     background: #6495ED;
+    color: white;
+}
+
+.button {
+    background: #D2691E;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
     transition: all 0.3s ease;
 }
-#mobile-menu {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
+
+.button:hover {
+    background: #6495ED;
 }
 
-.bar {
-    width: 30px;
-    height: 4px;
-    background-color: #F0F8FF;
-    margin: 5px 0;
-    transition: 0.3s;
-}
-
-@media screen and (max-width: 960px) {
-    #mobile-menu {
-        position: absolute;
-        top: 20%;
-        right: 5%;
-        transform: translate(5%, 20%);
-    }
-    
-    .navbar__toggle .bar {
-        display: block;
-        width: 30px;
-        height: 4px;
-        margin: 5px 0;
-        background: #131313; /* Make sure the bars are visible */
-        transition: 0.3s;
-    }
-    .navbar__container {
-        display:flex;
-        justify-content: space-between;
-        height: 80px;
-        z-index: 1;
-        width: 100%;
-        max-width: 1300px;
-    }
-
-    .navbar__menu {
-        display: grid;
-        grid-template-columns: auto;
-        margin: 0;
-        width: 100%;
-        position: absolute;
-        top: -1000px;
-        opacity: 0;
-        transition: all 0.5s ease;
-        height: 50vh;
-        z-index: -1
-
-    }
-
-    .navbar__menu.active {
-        background: #DCDCDC;
-        top: 100%;
-        opacity: 1;
-        transition: all 0.5s ease;
-        z-index: 99;
-        height: 50vh;
-        font-size: 1.6rem;
-    }
-
-    #navbar__logo {
-        padding-left: 25px;
-
-    }
-    .navbar__toggle .bar {
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        transition: all 0.3s ease-in-out;
-        background: #fff;
-    }
-    .navbar__item {
-        width: 100%;
-    }
-    .navbar__links {
-        text-align: center;
-        padding: 2rem;
-        width: 100%;
-        display: table;
-    }
-
-    
-    .navbar__btn {
-        display: flex;
-        justify-content: center;  /* Centers horizontally */
-        align-items: center;  /* Centers vertically */
-        width: 100%;  /* Ensures it spans full width */
-        padding: 0;
-        margin: 0 auto; /* Centers inside the parent container */
-        text-align: center;
-    }
-    .button {
-        display: flex;
-        content: center;
-        align-items: center;
-        width: 80%;
-        height: 80px;
-        margin: 0;
-
-    }
-    .navbar__toggle .bar {
-        display: block;
-        cursor: pointer;
-
-    }
-
-    #mobile-menu.is-active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    #mobile-menu.is-active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    #mobile-menu.is-active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-}
-
-/* HERO CONTENT */
-/* General hero section styles */
+/* Main Content Styles */
 .main {
-    position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #fff; /* Same background color as navbar */
-    overflow: hidden; /* Ensures image is cropped if necessary */
+    min-height: 80vh;
+    padding: 2rem;
 }
 
 .main__container {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
+    gap: 2rem;
     max-width: 1300px;
-    padding: 20px;
-    gap: 20px; /* Space between the text and image */
-    box-sizing: border-box;
+    width: 100%;
 }
 
-/* Left side content styles */
 .main__content {
-    max-width: 600px; /* Limit the width of the text */
-    padding: 20px;
-    text-align: left;
-    z-index: 2; /* Ensure text appears above the image */
-}
-
-.main__content h1,
-.main__content h2 {
-    font-family: "Times New Roman", Times, serif;  /* Apply Times New Roman to headings */
-    font-weight: normal;
+    flex: 1;
+    max-width: 600px;
 }
 
 .main__content h1 {
-    font-size: 3rem;  /* Adjust size as needed */
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #131313;
 }
 
 .main__content h2 {
-    font-size: 2rem;  /* Adjust size as needed */
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.main__content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1rem;
 }
 
 /* Hover effect for specific characters */
@@ -314,65 +156,45 @@
 }
 
 .hover-chomsky:hover {
-    font-family: 'Chomsky', sans-serif; /* Apply the Chomsky font on hover */
-    color: #131313;  /* Optional: Change color to match the theme */
+    font-family: 'Chomsky', sans-serif;
+    color: #131313;
 }
 
-/* Paragraphs styles */
-.main__content p {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;  /* Darker text color for readability */
-}
-
-/* Right side image container */
 .main__img--container {
-    position: relative;
-    width: 100%;
-    max-width: 500px; /* Adjust the image size */
-    height: 100vh; /* Ensure the image takes up the full height of the screen */
-    overflow: hidden; /* Hide any overflow (cropping the image) */
-    z-index: 1; /* Place the image behind the text */
+    flex: 1;
+    max-width: 500px;
 }
 
 #main__img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Make sure the image covers the container area */
+    height: auto;
+    border-radius: 8px;
 }
 
-/* Mobile responsive styling */
-@media screen and (max-width: 960px) {
-    .main__container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .main__img--container {
-        width: 100%;
-        height: auto; /* Allow image to adjust naturally */
-    }
-
-    .main__content h1 {
-        font-size: 2.5rem;
-    }
-
-    .main__content h2 {
-        font-size: 1.5rem;
-    }
-}
-
-/* SECTIONS */
+/* Section Styles */
 section {
-    margin: 20px 0;
+    margin: 20px;
     padding: 20px;
     background: #f4f4f4;
     border-radius: 8px;
 }
 
-h2 {
+section h2 {
+    font-family: 'Chomsky', Times, serif;
     color: #333;
+    margin-bottom: 1rem;
+}
+
+.subsection {
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+}
+
+.subsection h3 {
+    margin-bottom: 10px;
+    color: #131313;
 }
 
 ul {
@@ -384,62 +206,31 @@ ul li {
     margin: 10px 0;
 }
 
-/* Section Style */
-section {
-    margin: 20px 0;
-    padding: 20px;
-    background: #f4f4f4;
-    border-radius: 8px;
-}
-
-/* Section Header - Chomsky Font */
-section h2 {
-    font-family: 'Chomsky', Times, serif; /* Chomsky font for the section header */
-    color: #333;
-}
 a {
-    text-decoration: none;
     color: #007BFF;
-    font-family: "Times New Roman", Times, serif; /* Times New Roman for links */
+    text-decoration: none;
+    font-family: "Times New Roman", Times, serif;
     font-weight: normal;
 }
-section a:hover {
+
+a:hover {
     color: #0056b3;
-    font-style: italic;
     text-decoration: underline;
 }
 
-/* Link Hover Style */
-a:hover {
-    color: #0056b3;
-}
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Main content area (it takes up available space) */
-.main-content {
-    flex-grow: 1;  /* This will push the footer to the bottom */
-    padding: 20px; /* Add padding as necessary */
+section a:hover {
+    font-style: italic;
 }
 
 /* Footer Styles */
-/* Footer - Stay at the bottom */
 footer {
-    background-color: #131313;  /* Footer background color */
+    background-color: #131313;
     color: #fff;
     text-align: center;
     padding: 20px;
-    font-size: 1rem;
-    width: 100%;  /* Ensure the footer spans the full width */
-    margin-top: auto;  /* Pushes the footer to the bottom */
+    margin-top: 2rem;
 }
 
-/* Container for footer content */
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -449,7 +240,6 @@ footer {
     padding: 0 20px;
 }
 
-/* Masthead Section */
 .masthead {
     width: 60%;
 }
@@ -462,19 +252,14 @@ footer {
 }
 
 .masthead p {
-    font-family: "Times New Roman", Times, serif;
     font-style: italic;
-    font-size: 1rem;
     color: #dcdcdc;
     line-height: 1.6;
 }
 
-/* Footer Links */
 .footer-links ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    margin: 0;
-    text-align: left;
 }
 
 .footer-links li {
@@ -482,113 +267,351 @@ footer {
 }
 
 .footer-links a {
-    text-decoration: none;
     color: #F0F8FF;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 1rem;
+    text-decoration: none;
     font-style: italic;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
     color: #6495ED;
-    transition: color 0.3s ease;
 }
 
-
-/* Stream Button Styles */
-.stream-container {
-    text-align: center;
-    margin-top: 20px;  /* Adjust the margin as needed */
-}
-
-.stream-btn {
-    text-decoration: none;
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    background-color: #D2691E;
-    color: white;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-family: "Times New Roman", Times, serif;
-    text-align: center;
-}
-
-.stream-btn:hover {
-    background-color: #6495ED; /* Change to your hover color */
-    transform: scale(1.05);  /* Slight scaling effect on hover */
-}
-
-/* Optional: Add a margin at the bottom of the page to ensure space for other content */
-body {
-    margin-bottom: 50px; /* Adjust as needed */
-}
-
-
-/* Audio Player (Fixed Bottom Bar) */
-.audio-player {
+/* Persistent Audio Player Styles */
+#persistent-player {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     background-color: #131313;
     color: white;
+    padding: 15px 20px;
+    z-index: 998;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.player-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+#play-btn {
+    background-color: #D2691E;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    height: 50px;
+    justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
-/* Play button */
-#play-button {
-    background-color: #1DB954;
-    color: white;
-    border: none;
-    padding: 10px;
+#play-btn:hover {
+    background-color: #6495ED;
+}
+
+.material-icons {
+    font-size: 24px;
+}
+
+.progress-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #333;
+    border-radius: 4px;
+    position: relative;
     cursor: pointer;
-    border-radius: 5px;
 }
 
-/* Song info ticker */
-#song-info {
+.progress {
+    height: 100%;
+    background-color: #D2691E;
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.time-display {
+    font-size: 0.9rem;
+    color: #dcdcdc;
+    text-align: left;
+}
+
+.track-info {
+    width: 200px;
     white-space: nowrap;
     overflow: hidden;
-    width: 50%;
-    font-size: 16px;
-    animation: scrollText 10s linear infinite;
+    text-overflow: ellipsis;
+    text-align: center;
 }
 
-/* Select dropdown */
-#channel-select {
-    background: black;
+#current-track {
+    font-style: italic;
+    color: #F0F8FF;
+}
+
+.select-wrapper {
+    position: relative;
+    min-width: 200px;
+}
+
+#track-select {
+    background-color: #333;
     color: white;
-    border: none;
-    padding: 5px;
+    border: 1px solid #555;
+    padding: 8px 12px;
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 4px;
+    width: 100%;
     cursor: pointer;
 }
 
-/* Scrolling animation */
-@keyframes scrollText {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-#youtube-container {
-    display: none; /* Hides the video */
+#track-select:focus {
+    outline: none;
+    border-color: #D2691E;
 }
 
-#audio-player {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: black;
-    color: white;
-    padding: 10px;
+.status-indicator {
+    font-size: 0.8rem;
+    color: #dcdcdc;
+    margin-top: 5px;
+}
+
+/* Hide player when footer is visible */
+#persistent-player.hide-player {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar__container {
+        padding: 0 20px;
+    }
+    
+    .main__container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .main__content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .main__content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .player-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .progress-container {
+        order: 1;
+        width: 100%;
+    }
+    
+    .track-info {
+        order: 2;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .select-wrapper {
+        order: 3;
+        width: 100%;
+    }
+    
+    section {
+        margin: 10px;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .navbar__menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .masthead {
+        width: 100%;
+    }
+}
+
+/* Featured Essay Styles */
+.featured-essay {
+    margin: 30px 20px;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #D2691E;
+}
+
+.featured-header {
+    margin-bottom: 30px;
     text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.featured-header h1 {
+    font-family: 'Chomsky', Times, serif;
+    font-size: 2.5rem;
+    color: #131313;
+    margin-bottom: 15px;
+}
+
+.featured-intro {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+.essay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+.essay-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.essay-header h2 {
+    font-family: 'Chomsky', Times, serif;
+    font-size: 2rem;
+    color: #131313;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.essay-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+.essay-meta span {
+    padding: 5px 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.essay-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.essay-body p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.essay-body p:first-child {
+    font-size: 1.2rem;
+    color: #131313;
+    font-weight: 500;
+}
+
+.essay-body p:first-child::first-letter {
+    font-size: 3rem;
+    font-family: 'Chomsky', Times, serif;
+    float: left;
+    line-height: 1;
+    margin-right: 8px;
+    margin-top: 4px;
+    color: #D2691E;
+}
+
+.essay-body em {
+    font-style: italic;
+    color: #555;
+}
+
+.essay-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.essay-footer p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Mobile responsiveness for essay */
+@media (max-width: 768px) {
+    .featured-essay {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+    
+    .featured-header h1 {
+        font-size: 2rem;
+    }
+    
+    .featured-intro {
+        font-size: 1rem;
+    }
+    
+    .essay-content {
+        padding: 20px;
+    }
+    
+    .essay-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .essay-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .essay-body {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .essay-body p {
+        text-align: left;
+    }
+    
+    .essay-body p:first-child::first-letter {
+        font-size: 2.5rem;
+    }
 }
